@@ -1,0 +1,16 @@
+﻿  K_WinFileHandler.cpp
+  K_TextResource.cpp
+  K_ResourceManager.cpp
+  K_FileManager.cpp
+  K_Error.cpp
+  Driver.cpp
+  Generating Code...
+K_ResourceManager.obj : error LNK2019: unresolved external symbol "public: class tinyxml2::XMLElement const * __thiscall tinyxml2::XMLNode::FirstChildElement(char const *)const " (?FirstChildElement@XMLNode@tinyxml2@@QBEPBVXMLElement@2@PBD@Z) referenced in function "public: class tinyxml2::XMLElement * __thiscall tinyxml2::XMLNode::FirstChildElement(char const *)" (?FirstChildElement@XMLNode@tinyxml2@@QAEPAVXMLElement@2@PBD@Z)
+K_ResourceManager.obj : error LNK2019: unresolved external symbol "public: class tinyxml2::XMLElement const * __thiscall tinyxml2::XMLNode::NextSiblingElement(char const *)const " (?NextSiblingElement@XMLNode@tinyxml2@@QBEPBVXMLElement@2@PBD@Z) referenced in function "public: class tinyxml2::XMLElement * __thiscall tinyxml2::XMLNode::NextSiblingElement(char const *)" (?NextSiblingElement@XMLNode@tinyxml2@@QAEPAVXMLElement@2@PBD@Z)
+K_ResourceManager.obj : error LNK2019: unresolved external symbol "public: char const * __thiscall tinyxml2::XMLElement::Attribute(char const *,char const *)const " (?Attribute@XMLElement@tinyxml2@@QBEPBDPBD0@Z) referenced in function "private: void __thiscall K_ResourceCache<class K_TextResource>::initilizeResourceHeaders(void)" (?initilizeResourceHeaders@?$K_ResourceCache@VK_TextResource@@@@AAEXXZ)
+K_ResourceManager.obj : error LNK2019: unresolved external symbol "public: char const * __thiscall tinyxml2::XMLElement::GetText(void)const " (?GetText@XMLElement@tinyxml2@@QBEPBDXZ) referenced in function "private: void __thiscall K_ResourceCache<class K_TextResource>::initilizeResourceHeaders(void)" (?initilizeResourceHeaders@?$K_ResourceCache@VK_TextResource@@@@AAEXXZ)
+K_ResourceManager.obj : error LNK2019: unresolved external symbol "public: __thiscall tinyxml2::XMLDocument::XMLDocument(bool,enum tinyxml2::Whitespace)" (??0XMLDocument@tinyxml2@@QAE@_NW4Whitespace@1@@Z) referenced in function "private: void __thiscall K_ResourceCache<class K_TextResource>::initilizeResourceHeaders(void)" (?initilizeResourceHeaders@?$K_ResourceCache@VK_TextResource@@@@AAEXXZ)
+K_ResourceManager.obj : error LNK2019: unresolved external symbol "public: virtual __thiscall tinyxml2::XMLDocument::~XMLDocument(void)" (??1XMLDocument@tinyxml2@@UAE@XZ) referenced in function "private: void __thiscall K_ResourceCache<class K_TextResource>::initilizeResourceHeaders(void)" (?initilizeResourceHeaders@?$K_ResourceCache@VK_TextResource@@@@AAEXXZ)
+K_ResourceManager.obj : error LNK2019: unresolved external symbol "public: enum tinyxml2::XMLError __thiscall tinyxml2::XMLDocument::Parse(char const *,unsigned int)" (?Parse@XMLDocument@tinyxml2@@QAE?AW4XMLError@2@PBDI@Z) referenced in function "private: void __thiscall K_ResourceCache<class K_TextResource>::initilizeResourceHeaders(void)" (?initilizeResourceHeaders@?$K_ResourceCache@VK_TextResource@@@@AAEXXZ)
+C:\Users\cameron\Documents\Visual Studio 2015\Projects\KNgine\KNgine\Libraries\tinyxml2\lib\tinyxml2.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:\Users\cameron\documents\visual studio 2015\Projects\KNgine\Debug\KNgine.exe : fatal error LNK1120: 7 unresolved externals
