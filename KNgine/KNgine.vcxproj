@@ -86,11 +86,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\cameron\Documents\Visual Studio 2015\Projects\KNgine\KNgine\Libraries\tinyxml2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\dev\lib\glew-2.0.0\include;C:\Users\cameron\Documents\Visual Studio 2015\Projects\KNgine\KNgine\Libraries\tinyxml2\include;C:\dev\lib\glfw-3.2.1-WIN64\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\cameron\Documents\Visual Studio 2015\Projects\KNgine\KNgine\Libraries\tinyxml2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>tinyxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\dev\lib\glew-2.0.0\lib\Release\x64;C:\Users\cameron\Documents\Visual Studio 2015\Projects\KNgine\KNgine\Libraries\tinyxml2\lib;C:\dev\lib\glfw-3.2.1-WIN64\lib-vc2015</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3dll.lib;glew32.lib;opengl32.lib;tinyxml2.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,14 +113,21 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\dev\lib\glew-2.0.0\include;C:\Users\cameron\Documents\Visual Studio 2015\Projects\KNgine\KNgine\Libraries\tinyxml2\include;C:\dev\lib\glfw-3.2.1-WIN64\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\dev\lib\glew-2.0.0\lib\Release\x64;C:\Users\cameron\Documents\Visual Studio 2015\Projects\KNgine\KNgine\Libraries\tinyxml2\lib;C:\dev\lib\glfw-3.2.1-WIN64\lib-vc2015</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3dll.lib;glew32.lib;opengl32.lib;tinyxml2.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Driver.cpp" />
+    <ClCompile Include="K_AbstractEntityFactory.cpp" />
+    <ClCompile Include="K_Entity.cpp" />
+    <ClCompile Include="K_EntityManager.cpp" />
+    <ClCompile Include="K_EntityTemplateResource.cpp" />
     <ClCompile Include="K_Error.cpp" />
     <ClCompile Include="K_FileManager.cpp" />
     <ClCompile Include="K_ResourceManager.cpp" />
@@ -128,13 +135,19 @@
     <ClCompile Include="K_WinFileHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="K_AbstractEntityFactory.hpp" />
     <ClInclude Include="K_Config.hpp" />
+    <ClInclude Include="K_Entity.hpp" />
+    <ClInclude Include="K_EntityComponent.hpp" />
+    <ClInclude Include="K_EntityManager.hpp" />
+    <ClInclude Include="K_EntityTemplateResource.hpp" />
     <ClInclude Include="K_Error.hpp" />
     <ClInclude Include="K_FileManager.hpp" />
     <ClInclude Include="K_IFileHandler.hpp" />
+    <ClInclude Include="K_IRenderableComponent.hpp" />
     <ClInclude Include="K_IResourceType.hpp" />
-    <ClInclude Include="K_Process.hpp" />
-    <ClInclude Include="K_ProcessManager.hpp" />
+    <ClInclude Include="K_IWindowManager.hpp" />
+    <ClInclude Include="K_RenderEngine.hpp" />
     <ClInclude Include="K_Resource.hpp" />
     <ClInclude Include="K_ResourceCache.hpp" />
     <ClInclude Include="K_ResourceHeader.hpp" />

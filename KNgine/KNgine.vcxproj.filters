@@ -37,6 +37,21 @@
     <Filter Include="Header Files\Process Module">
       <UniqueIdentifier>{92e4f896-314e-41a9-a51d-235545de5d1a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entity Module">
+      <UniqueIdentifier>{f31e58f7-e523-458a-b243-70b6bc5d832c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entity Module">
+      <UniqueIdentifier>{4864b482-6dd8-4b5a-9b94-a17566205e6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics Module">
+      <UniqueIdentifier>{f440dc46-9366-433a-8efa-d6c1dcf0352b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Window Module">
+      <UniqueIdentifier>{1375fc78-107a-4f11-bba2-b4907e309020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window Module">
+      <UniqueIdentifier>{770de2c1-98bf-4796-95cf-9f0a270045b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="K_Error.cpp">
@@ -55,6 +70,18 @@
       <Filter>Source Files\Resource Module</Filter>
     </ClCompile>
     <ClCompile Include="K_TextResource.cpp">
+      <Filter>Source Files\Resource Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_Entity.cpp">
+      <Filter>Source Files\Entity Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_EntityManager.cpp">
+      <Filter>Source Files\Entity Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_AbstractEntityFactory.cpp">
+      <Filter>Source Files\File Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_EntityTemplateResource.cpp">
       <Filter>Source Files\Resource Module</Filter>
     </ClCompile>
   </ItemGroup>
@@ -92,11 +119,29 @@
     <ClInclude Include="K_TextResource.hpp">
       <Filter>Header Files\Resource Module</Filter>
     </ClInclude>
-    <ClInclude Include="K_Process.hpp">
-      <Filter>Header Files\Process Module</Filter>
+    <ClInclude Include="K_Entity.hpp">
+      <Filter>Header Files\Entity Module</Filter>
     </ClInclude>
-    <ClInclude Include="K_ProcessManager.hpp">
-      <Filter>Header Files\Process Module</Filter>
+    <ClInclude Include="K_EntityManager.hpp">
+      <Filter>Header Files\Entity Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_EntityComponent.hpp">
+      <Filter>Header Files\Entity Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_AbstractEntityFactory.hpp">
+      <Filter>Header Files\Entity Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_EntityTemplateResource.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_RenderEngine.hpp">
+      <Filter>Header Files\Graphics Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_IWindowManager.hpp">
+      <Filter>Header Files\Window Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_IRenderableComponent.hpp">
+      <Filter>Header Files\Entity Module</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

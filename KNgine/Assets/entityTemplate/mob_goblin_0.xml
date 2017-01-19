@@ -1,0 +1,6 @@
+<entity id ="mob_goblin_0">
+	<component type ="2DSprite">
+		<dimensions x ="0" y ="0" width = "" height ="" />
+	</component>
+</entity>
+

@@ -20,6 +20,8 @@ public:
 	///////////////////////////////////////
 	T* getResourceData();
 
+	T* operator->(void);
+
 private:
 
 	//Private Datamembers
@@ -59,6 +61,12 @@ K_Resource<T>::~K_Resource()
 ///////////////////////////////////////
 template<typename T>
 T* K_Resource<T>::getResourceData()
+{
+	return _resource;
+}
+
+template<typename T>
+T* K_Resource<T>::operator->(void)
 {
 	return _resource;
 }

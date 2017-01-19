@@ -10,10 +10,9 @@
 
 #include "K_Error.hpp"
 #include "K_FileManager.hpp"
-#include "K_Config.hpp"
 
+#include <tinyxml2.h>
 
-#include "tinyxml2.h"
 
 
 template<typename T>
@@ -23,20 +22,22 @@ public:
 
 	//Constructor/Destructor
 	///////////////////////////////////////
-	K_ResourceCache();
+	K_ResourceCache(std::string resourceLocations);
 	~K_ResourceCache();
 
 
 
 	//Public Functions
 	///////////////////////////////////////
-	K_ResourceHeader<T>* getResourceHeader(std::string id );	
+	K_ResourceHeader<T>* getResourceHeader(std::string id);	
+
+	void printResourceHeaderInfo();
 
 private:
 
 	//Private Functions
 	///////////////////////////////////////
-	void initilizeResourceHeaders();
+	void initilizeResourceHeaders(std::string resourceLocations);
 
 
 	//Private DataMemebers
@@ -50,9 +51,9 @@ private:
 //Constructor/Destructor IMPL
 ///////////////////////////////////////
 template<typename T>
-K_ResourceCache<T>::K_ResourceCache()
+K_ResourceCache<T>::K_ResourceCache(std::string resourceLocations)
 {
-	initilizeResourceHeaders();
+	initilizeResourceHeaders(resourceLocations);
 }
 
 
@@ -81,19 +82,29 @@ K_ResourceHeader<T>* K_ResourceCache<T>::getResourceHeader(std::string id)
 	return iter->second;
 }
 
+template<typename T>
+void K_ResourceCache<T>::printResourceHeaderInfo()
+{
+	for (std::map<std::string, K_ResourceHeader<T>*>::iterator iter = _resourceHeaders.begin(); iter != _resourceHeaders.end(); ++iter)
+	{
+		printf("Resource: %s	Active References: %d\n", iter->first.c_str(), iter->second->getReferenceCount());
+	}
+}
 
 
 //Private Functions IMPL
 ///////////////////////////////////////
 template<typename T>
-void K_ResourceCache<T>::initilizeResourceHeaders()
+void K_ResourceCache<T>::initilizeResourceHeaders(std::string resourceLocations)
 {
 	std::string fileContents;
 	tinyxml2::XMLDocument doc;
 
-	K_FileManager::instance().readTextToString(K_RESOURCE_LIST_FILE_LOC, fileContents);
+	printf("Initilizing Resource Cache from resource list: %s\n", resourceLocations.c_str());
 
-	K_Error error1("Initilizing Resource Headers from", K_RESOURCE_LIST_FILE_LOC);
+	K_FileManager::instance().readTextToString(resourceLocations.c_str(), fileContents);
+
+	K_Error error1("Initilizing Resource Headers from", resourceLocations);
 	if (doc.Parse(fileContents.c_str()) != tinyxml2::XML_SUCCESS)
 	{
 		K_Error::dump();
@@ -116,6 +127,7 @@ void K_ResourceCache<T>::initilizeResourceHeaders()
 		
 		currentNode = currentNode->NextSiblingElement();
 	}
+	printf("\n");
 }
 
 #endif // __K_RESOURCECACHE_HPP__

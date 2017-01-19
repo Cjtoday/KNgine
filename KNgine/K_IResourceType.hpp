@@ -2,7 +2,7 @@
 #define __K_IRESOURCETYPE_HPP__
 
 
-
+#include <string>
 
 class K_IResourceType
 {

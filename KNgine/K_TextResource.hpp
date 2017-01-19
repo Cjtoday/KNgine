@@ -2,12 +2,10 @@
 #define __K_TEXTRESOURCE_HPP__
 
 
-#include <string>
-
 #include "K_IResourceType.hpp"
 
 
-class K_TextResource : K_IResourceType
+class K_TextResource : public K_IResourceType
 {
 public:
 	K_TextResource();

@@ -1,7 +1,13 @@
-﻿  K_ResourceManager.cpp
+﻿  Driver.cpp
+c:\users\cameron\documents\visual studio 2015\projects\kngine\kngine\driver.cpp(90): warning C4244: 'initializing': conversion from 'time_t' to 'double', possible loss of data
+c:\users\cameron\documents\visual studio 2015\projects\kngine\kngine\driver.cpp(96): warning C4244: 'initializing': conversion from 'time_t' to 'double', possible loss of data
   Generating Code...
   Compiling...
-  Driver.cpp
+  K_ResourceManager.cpp
+  K_EntityManager.cpp
   Generating Code...
+  Skipping... (no relevant changes detected)
+  K_Entity.cpp
+  K_AbstractEntityFactory.cpp
   KNgine.vcxproj -> C:\Users\cameron\documents\visual studio 2015\Projects\KNgine\x64\Debug\KNgine.exe
   KNgine.vcxproj -> C:\Users\cameron\documents\visual studio 2015\Projects\KNgine\x64\Debug\KNgine.pdb (Partial PDB)
