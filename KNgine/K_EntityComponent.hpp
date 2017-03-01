@@ -10,11 +10,11 @@ typedef unsigned int K_EntityComponentID;
 class K_EntityComponent
 {
 public:
-	K_EntityComponent();
-	~K_EntityComponent();
+	K_EntityComponent() {};
+	virtual ~K_EntityComponent();
 
 	virtual void update() = 0;
-	virtual void initilize(tinyxml2::XMLElement descriptorElement) = 0;
+	virtual void initilize(const tinyxml2::XMLElement* descriptorElement) = 0;
 	
 
 };

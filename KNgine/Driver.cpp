@@ -1,10 +1,14 @@
+#pragma comment(lib,"user32.lib") 
 
 
 #include "K_ResourceManager.hpp"
 #include "K_Resource.hpp"
 #include "K_TextResource.hpp"
+#include "K_TextureResource.hpp"
 #include "K_EntityManager.hpp"
 #include "K_Error.hpp"
+#include "K_WinApiWindow.hpp"
+
 
 #include <cstdio>
 #include <ctime>
@@ -17,7 +21,10 @@
 K_ResourceManager _manager;
 
 
-void handleInput(GLFWwindow* window, int key, int scancode, int action, int mods) {
+void handleInput(GLFWwindow* window, int key, int scancode, int action, int mods) 
+{
+	/*
+
 	if (action == GLFW_PRESS) {
 		if (key == GLFW_KEY_ESCAPE)
 		{
@@ -27,16 +34,26 @@ void handleInput(GLFWwindow* window, int key, int scancode, int action, int mods
 		{
 			_manager.dumpResourcesInfo();
 		}
+		if (key == GLFW_KEY_1)
+		{
+			
+		}
 	}
 	else if (action == GLFW_RELEASE) {
 	}
+	*/
 }
 
 
 
-GLFWwindow* setupTempWindow()
+K_WinApiWindow* setupTempWindow()
 {
 
+
+
+	//K_WinApiWindow* window;
+
+	/*
 	GLFWwindow* window;
 
 	K_Error glfwError("initilizing GLFW3", "init Failed");
@@ -64,24 +81,42 @@ GLFWwindow* setupTempWindow()
 	{
 		printf(" GLEW not initilized, openGL version: %s\n", glGetString(GL_VERSION));
 	}
-
+	glClearColor(1, 1, 0, 1);
 
 	glfwSetKeyCallback(window, handleInput);
 
-	return window;
+	*/
+	return nullptr;
+	
 }
 
 
 
 int main(char** args)
-{
+{	
 	K_EntityManager _entityManager(_manager);
+
+	K_Texture texture_0 = _manager.getTextureResource("test");
 
 	K_Text text_0 = _manager.getTextResource("Hello");
 	K_Text text_1 = _manager.getTextResource("Hello");
 
+	K_EntityID mob_0 = _entityManager.createEntityHandle("mob_goblin_0");
 
-	GLFWwindow* _window = setupTempWindow();
+	K_WindowConfig _windowConfig =
+	{
+		false,
+		200,
+		200,
+		200,
+		200,
+		"K_Window",
+		"K_Window"
+	};
+
+	K_WinApiWindow* _window = new K_WinApiWindow();
+	_window->createWindow(_windowConfig);
+	_window->showDefaultWindow();
 
 
 	double t = 0.0;
@@ -90,7 +125,9 @@ int main(char** args)
 	double currentTime = time(0);
 	double accumulatedTime = 0.0;
 
-	while (!glfwWindowShouldClose(_window))
+	
+	//while (!glfwWindowShouldClose(_window))
+	while(true)
 	{
 
 		double newTime = time(0);
@@ -115,14 +152,19 @@ int main(char** args)
 		//printf("rendering\n");
 		//Sleep(16.6);
 		K_Text text_2 = _manager.getTextResource("Hello");
-
-		glfwPollEvents();
+		MSG msg;
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+		//glfwPollEvents();
 	}
 
 
 
 
-	glfwDestroyWindow(_window);
+	//glfwDestroyWindow(_window);
 
 	printf("Program executed sucessfully press enter to terminate...");
 	getchar();

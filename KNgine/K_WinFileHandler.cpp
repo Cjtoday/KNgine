@@ -24,10 +24,10 @@ void K_WinFileHandler::readTextToString(const char * fileName, std::string & tex
 	long fileSize;
 
 	fopen_s(&fileHandle, fileName, "rb");
-	K_Error error1("Reading file to String", fileName);
 	if (!fileHandle)
 	{
 		perror("Error");
+		K_Error error1("Reading file to String", fileName);
 		K_Error::dump();
 	}
 
@@ -36,23 +36,23 @@ void K_WinFileHandler::readTextToString(const char * fileName, std::string & tex
 	fseek(fileHandle, 0, SEEK_SET);
 
 	buffer = (char*)malloc(fileSize + 1);
-	K_Error error2("Allocating memeory for file contents", fileName);
 	if (!buffer)
 	{
 		fclose(fileHandle);
 		free(buffer);
 
+		K_Error error2("Allocating memeory for file contents", fileName);
 		K_Error::dump();
 	}
 	
 
 
-	K_Error error3("Reading file into buffer", fileName);
 	if (fread(buffer, fileSize, 1, fileHandle) != 1)
 	{
 		fclose(fileHandle);
 		free(buffer);
 
+		K_Error error3("Reading file into buffer", fileName);
 		K_Error::dump();
 	}
 
@@ -73,7 +73,6 @@ void K_WinFileHandler::writeTextBufferToFile(const char * fileName, const std::s
 
 void K_WinFileHandler::readBinaryToBuffer(const char * fileName,  std::vector<unsigned char>& dataBuffer)
 {
-
 
 	FILE* fileHandle;
 	unsigned char* buffer;

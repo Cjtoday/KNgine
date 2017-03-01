@@ -4,12 +4,16 @@
 
 #include "K_Entity.hpp"
 #include <tinyxml2.h>
-
+#include <map>
+#include <string>
 
 class K_AbstractEntityFactory
 {
 public:
 	friend class K_EntityManager;
+
+	typedef K_EntityComponent* (K_AbstractEntityFactory::*CreatorFunction)(void);
+	typedef std::map<std::string, CreatorFunction> CreatorFunctionMap;
 
 	K_AbstractEntityFactory();
 	~K_AbstractEntityFactory();
@@ -22,7 +26,9 @@ public:
 private:
 
 	K_EntityComponent* createComponent(const tinyxml2::XMLElement* descriptorNode);
+	K_EntityComponent* createSprite2D();
 
+	CreatorFunctionMap _creatorFunctions;
 
 };
 

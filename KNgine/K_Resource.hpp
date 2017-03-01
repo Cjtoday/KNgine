@@ -3,7 +3,6 @@
 
 
 
-
 template <typename T>
 class K_Resource
 {
@@ -15,7 +14,6 @@ public:
 	~K_Resource();
 
 
-	
 	//Public Functions
 	///////////////////////////////////////
 	T* getResourceData();

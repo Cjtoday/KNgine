@@ -52,6 +52,15 @@
     <Filter Include="Source Files\Window Module">
       <UniqueIdentifier>{770de2c1-98bf-4796-95cf-9f0a270045b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utility Module">
+      <UniqueIdentifier>{968efcca-3fab-4444-b78b-05b3f08e7515}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility Module">
+      <UniqueIdentifier>{eb818c4a-2b93-47ad-b119-294ae072d500}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics Module">
+      <UniqueIdentifier>{a4015cdb-84dc-40b1-b315-926a41693e5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="K_Error.cpp">
@@ -69,20 +78,32 @@
     <ClCompile Include="K_ResourceManager.cpp">
       <Filter>Source Files\Resource Module</Filter>
     </ClCompile>
-    <ClCompile Include="K_TextResource.cpp">
-      <Filter>Source Files\Resource Module</Filter>
-    </ClCompile>
     <ClCompile Include="K_Entity.cpp">
       <Filter>Source Files\Entity Module</Filter>
     </ClCompile>
     <ClCompile Include="K_EntityManager.cpp">
       <Filter>Source Files\Entity Module</Filter>
     </ClCompile>
-    <ClCompile Include="K_AbstractEntityFactory.cpp">
-      <Filter>Source Files\File Module</Filter>
-    </ClCompile>
     <ClCompile Include="K_EntityTemplateResource.cpp">
       <Filter>Source Files\Resource Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_AbstractEntityFactory.cpp">
+      <Filter>Source Files\Entity Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_TextureResource.cpp">
+      <Filter>Source Files\Resource Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_ImageDecoder.cpp">
+      <Filter>Source Files\Utility Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_TextResource.cpp">
+      <Filter>Source Files\Resource Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_RenderEngine.cpp">
+      <Filter>Source Files\Graphics Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_WinApiWindow.cpp">
+      <Filter>Source Files\Window Module</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,9 +137,6 @@
     <ClInclude Include="K_ResourceManager.hpp">
       <Filter>Header Files\Resource Module</Filter>
     </ClInclude>
-    <ClInclude Include="K_TextResource.hpp">
-      <Filter>Header Files\Resource Module</Filter>
-    </ClInclude>
     <ClInclude Include="K_Entity.hpp">
       <Filter>Header Files\Entity Module</Filter>
     </ClInclude>
@@ -140,8 +158,40 @@
     <ClInclude Include="K_IWindowManager.hpp">
       <Filter>Header Files\Window Module</Filter>
     </ClInclude>
-    <ClInclude Include="K_IRenderableComponent.hpp">
+    <ClInclude Include="K_Vertex.hpp">
+      <Filter>Header Files\Graphics Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_VertexBuffer.hpp">
+      <Filter>Header Files\Graphics Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_RenderableComponent.hpp">
       <Filter>Header Files\Entity Module</Filter>
     </ClInclude>
+    <ClInclude Include="K_TextureResource.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_ImageDecoder.hpp">
+      <Filter>Header Files\Utility Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_RendererObject.hpp">
+      <Filter>Header Files\Graphics Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_TextResource.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_ShaderResource.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_WindowConfig.hpp">
+      <Filter>Header Files\Window Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_WinApiWindow.hpp">
+      <Filter>Header Files\Window Module</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="K_RenderBatch.hpp">
+      <Filter>Header Files\Graphics Module</Filter>
+    </None>
   </ItemGroup>
 </Project>
