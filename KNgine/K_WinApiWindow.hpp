@@ -3,6 +3,7 @@
 
 
 #include "K_WindowConfig.hpp"
+#include "K_Keys.hpp"
 #include <Windows.h>
 
 
@@ -10,37 +11,53 @@
 class K_WinApiWindow
 {
 public:
-	K_WinApiWindow();
 	~K_WinApiWindow();
 
-	virtual void createWindow(K_WindowConfig& config);
+	typedef void(*K_InputCallback)(K_WinApiWindow*, K_KeyCode, unsigned int);
+
+
+	static K_WinApiWindow* createWindow(K_WindowConfig& config);
 	virtual void showDefaultWindow();
 	virtual void showWindow();
 	virtual void hideWindow();
 	virtual void maximizeWindow();
 	virtual void minimizeWindow();
 	virtual void restoreWindow();
+	virtual void close();
+	virtual bool shouldClose();
+	virtual void swapBuffers();
 
+	virtual void setInputCallback(K_InputCallback callback);
+
+	
 
 private:
+
+	K_WinApiWindow();
 	
 	static LRESULT CALLBACK msgProxy(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-	virtual LRESULT msgHandler(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+	LRESULT msgHandler(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
-	inline static K_WinApiWindow* getObjectFromWindow(HWND hwnd)
-	{
-		return (K_WinApiWindow*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
-	}
+	virtual void initilizeKeyMapping();
+	virtual K_KeyCode mapKeyCode(unsigned long vkCode, unsigned long lParam );
 
-	virtual const HDC* getWindowsDeviceContext();
+	const HDC* getWindowsDeviceContext();
 
-	virtual void createPixelFormatDescriptor();
+	void createPixelFormatDescriptor();
+	void setWindowHandle(HWND hwnd);
+	HINSTANCE getWindowInstance();
 
 	PIXELFORMATDESCRIPTOR _pixelFormatDescriptor;
 	HDC			_hDeviceContext;
 	HWND		_hWindow;
 	HINSTANCE	_hInstance;
+	HGLRC		_hGlRenderContext;
+
+	K_InputCallback _inputCallback;
+	K_KeyMapping _keyMapping;
+	bool _shouldClose;
 
 };
+
 
 #endif // __K_WINAPIWINDOW_HPP__

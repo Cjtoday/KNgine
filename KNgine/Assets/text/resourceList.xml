@@ -1,1 +1,2 @@
-<location id ="Hello">Assets/text/tester.txt</location>
+<location id ="test">Assets/text/tester.txt</location>
+<location id ="Hello">Assets/text/hello_world.txt</location>

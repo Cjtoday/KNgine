@@ -1,0 +1,3 @@
+<location id ="testVert">Assets/shader/testVert.glsl</location>
+<location id ="testFrag">Assets/shader/testFrag.glsl</location>
+

@@ -12,33 +12,30 @@ K_RenderEngine::~K_RenderEngine()
 
 void K_RenderEngine::initilize()
 {
-	if (glewInit() == GLEW_OK)
+	glewExperimental = true;
+	if (glewInit() != GLEW_OK)
 	{
-		printf("openGL version: %s\n", glGetString(GL_VERSION));
+		K_Error glewInitError("openGL Error", "failed to initilize glew");
+		K_Error::dump();
 	}
-	else
-	{
-		printf(" GLEW not initilized, openGL version: %s\n", glGetString(GL_VERSION));
-	}
+
 	glClearColor(1, 1, 0, 1);
 }
 
-void K_RenderEngine::createWindow(const K_WindowConfig config)
+K_RenderID K_RenderEngine::createShaderObject(K_Shader & vertexShader, K_Shader & fragmentShader)
 {
-	K_Error glfwError("initilizing GLFW3", "init Failed");
-	if (!glfwInit())
+
+	K_RenderID programID = glCreateProgram();
+	K_RenderID vertShaderID = glCreateShader(GL_VERTEX_SHADER);
+
+	if (!vertShaderID)
 	{
+		K_Error shaderError("openGL Error", "Could not create Vertex Shader.");
 		K_Error::dump();
 	}
 
-	_window = glfwCreateWindow(config._width, config._height, config._title, NULL, NULL);
 
-	K_Error windowError("creating GLFW Window", "creation failed");
-	if (!_window)
-	{
-		glfwTerminate();
-		K_Error::dump();
-	}
-
-	glfwMakeContextCurrent(_window);
+	return programID;
 }
+
+

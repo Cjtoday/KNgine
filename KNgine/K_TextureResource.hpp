@@ -4,6 +4,8 @@
 
 #include "K_RendererObject.hpp"
 #include "K_IResourceType.hpp"
+#include "K_Resource.hpp"
+
 
 #include <vector>
 
@@ -25,6 +27,8 @@ private:
 
 };
 
+
+typedef K_Resource<K_TextureResource> K_Texture;
 
 
 #endif // __K_TEXTURERESOURCE_HPP__

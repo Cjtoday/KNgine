@@ -1,1 +1,26 @@
-﻿LINK : fatal error LNK1104: cannot open file 'gdi32.obj'
+﻿  K_WinFileHandler.cpp
+  K_WinApiWindow.cpp
+c:\users\cameron\documents\visual studio 2015\projects\kngine\kngine\k_winapiwindow.cpp(164): warning C4244: 'argument': conversion from 'LPARAM' to 'unsigned long', possible loss of data
+c:\users\cameron\documents\visual studio 2015\projects\kngine\kngine\k_winapiwindow.cpp(164): warning C4244: 'argument': conversion from 'WPARAM' to 'unsigned long', possible loss of data
+  K_VertexBuffer.cpp
+  K_TextureResource.cpp
+  K_TextResource.cpp
+  K_ShaderResource.cpp
+  K_ResourceManager.cpp
+  K_RenderEngine.cpp
+  K_RenderableObject.cpp
+  K_MeshResource.cpp
+  K_Keys.cpp
+  K_ImageDecoder.cpp
+  K_FileManager.cpp
+  K_Error.cpp
+  K_EntityTemplateResource.cpp
+  K_EntityManager.cpp
+  K_Entity.cpp
+  K_AbstractEntityFactory.cpp
+  Driver.cpp
+c:\users\cameron\documents\visual studio 2015\projects\kngine\kngine\driver.cpp(130): warning C4244: 'initializing': conversion from 'time_t' to 'double', possible loss of data
+c:\users\cameron\documents\visual studio 2015\projects\kngine\kngine\driver.cpp(136): warning C4244: 'initializing': conversion from 'time_t' to 'double', possible loss of data
+  Generating Code...
+  KNgine.vcxproj -> C:\Users\cameron\documents\visual studio 2015\Projects\KNgine\x64\Debug\KNgine.exe
+  KNgine.vcxproj -> C:\Users\cameron\documents\visual studio 2015\Projects\KNgine\x64\Debug\KNgine.pdb (Partial PDB)

@@ -8,11 +8,9 @@
 #include "K_TextResource.hpp"
 #include "K_TextureResource.hpp"
 #include "K_EntityTemplateResource.hpp"
+#include "K_ShaderResource.hpp"
 
 
-typedef K_Resource<K_TextResource> K_Text;
-typedef K_Resource<K_EntityTemplateResource> K_EntityTemplate;
-typedef K_Resource<K_TextureResource> K_Texture;
 
 class K_ResourceManager
 {
@@ -23,6 +21,7 @@ public:
 	K_Text getTextResource(std::string id);
 	K_EntityTemplate getEntityTemplateResource(std::string id);
 	K_Texture getTextureResource(std::string id);
+	K_Shader getShaderResource(std::string id);
 
 	void dumpResourcesInfo();
 
@@ -31,6 +30,7 @@ private:
 	K_ResourceCache<K_TextResource> _textResourceCache;
 	K_ResourceCache<K_EntityTemplateResource> _entityTemplateResourceCache;
 	K_ResourceCache<K_TextureResource> _textureResourceCache;
+	K_ResourceCache<K_ShaderResource> _shaderResourceCache;
 	
 };
 

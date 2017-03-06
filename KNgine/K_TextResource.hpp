@@ -3,6 +3,8 @@
 
 
 #include "K_IResourceType.hpp"
+#include "K_Resource.hpp"
+
 
 
 class K_TextResource : public K_IResourceType
@@ -19,6 +21,9 @@ private:
 	std::string _text;
 
 };
+
+typedef K_Resource<K_TextResource> K_Text;
+
 
 #endif // __K_TEXTRESOURCE_HPP__
 

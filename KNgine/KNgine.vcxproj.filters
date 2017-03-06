@@ -61,6 +61,12 @@
     <Filter Include="Source Files\Graphics Module">
       <UniqueIdentifier>{a4015cdb-84dc-40b1-b315-926a41693e5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\User Input Module">
+      <UniqueIdentifier>{65a02f63-02ab-4800-a5b8-1b0e48c8706e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\User Input Module">
+      <UniqueIdentifier>{848923a4-88e0-400b-ad71-feeee797c0ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="K_Error.cpp">
@@ -104,6 +110,21 @@
     </ClCompile>
     <ClCompile Include="K_WinApiWindow.cpp">
       <Filter>Source Files\Window Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_Keys.cpp">
+      <Filter>Source Files\User Input Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_RenderableObject.cpp">
+      <Filter>Source Files\Graphics Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_ShaderResource.cpp">
+      <Filter>Source Files\Resource Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_MeshResource.cpp">
+      <Filter>Source Files\Resource Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_VertexBuffer.cpp">
+      <Filter>Source Files\Graphics Module</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +208,21 @@
     </ClInclude>
     <ClInclude Include="K_WinApiWindow.hpp">
       <Filter>Header Files\Window Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_Keys.hpp">
+      <Filter>Header Files\User Input Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_Window.hpp">
+      <Filter>Header Files\Window Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_RenderableObject.hpp">
+      <Filter>Header Files\Graphics Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_MeshResource.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_RenderID.hpp">
+      <Filter>Header Files\Graphics Module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

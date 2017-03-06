@@ -3,10 +3,13 @@
 
 
 #include "K_WindowConfig.hpp"
-//Must include glew before glfw for now. hopefully replace glfw soonish
+#include "K_RenderableObject.hpp"
+#include "K_ShaderResource.hpp"
+
+
 #include <GL/glew.h>
-#include <GLFW/glfw3.h>
 #include <vector>
+
 
 class K_RenderEngine
 {
@@ -15,13 +18,11 @@ public:
 	~K_RenderEngine();
 
 	void initilize();
+	K_RenderID registerRenderableObject(K_RenderableObject& obj);
+	K_RenderID createShaderObject(K_Shader& vertexShader, K_Shader& fragmentShader);
 
-	void createWindow(const struct K_WindowConfig config);
-	
-	
+		
 private:
-
-	GLFWwindow* _window;
 
 
 

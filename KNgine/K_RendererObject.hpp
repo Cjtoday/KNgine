@@ -1,9 +1,8 @@
 #ifndef __K_RENDEREROBJECT_HPP__
 #define __K_RENDEREROBJECT_HPP__
 
+#include "K_RenderID.hpp"
 
-
-typedef unsigned int K_RendererID;
 typedef unsigned int K_BatchID;
 
 class K_RendererObject
@@ -16,7 +15,7 @@ public:
 
 private:
 	 
-	K_RendererID _id;
+	K_RenderID _id;
 
 };
 
