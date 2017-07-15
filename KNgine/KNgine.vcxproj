@@ -135,15 +135,19 @@
     <ClCompile Include="K_ImageDecoder.cpp" />
     <ClCompile Include="K_Keys.cpp" />
     <ClCompile Include="K_MeshResource.cpp" />
-    <ClCompile Include="K_RenderableObject.cpp" />
+    <ClCompile Include="K_ProcessManager.cpp" />
     <ClCompile Include="K_RenderEngine.cpp" />
     <ClCompile Include="K_ResourceManager.cpp" />
     <ClCompile Include="K_ShaderResource.cpp" />
     <ClCompile Include="K_TextResource.cpp" />
     <ClCompile Include="K_TextureResource.cpp" />
+    <ClCompile Include="K_Vector.cpp" />
     <ClCompile Include="K_VertexBuffer.cpp" />
     <ClCompile Include="K_WinApiWindow.cpp" />
     <ClCompile Include="K_WinFileHandler.cpp" />
+    <ClCompile Include="TestResourceManager.cpp" />
+    <ClCompile Include="TestResourceHeader.cpp" />
+    <ClCompile Include="TestTextResource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="K_AbstractEntityFactory.hpp" />
@@ -159,12 +163,13 @@
     <ClInclude Include="K_IResourceType.hpp" />
     <ClInclude Include="K_IWindowManager.hpp" />
     <ClInclude Include="K_Keys.hpp" />
+    <ClInclude Include="K_Logger.hpp" />
     <ClInclude Include="K_MeshResource.hpp" />
+    <ClInclude Include="K_Process.hpp" />
+    <ClInclude Include="K_ProcessManager.hpp" />
     <ClInclude Include="K_RenderableComponent.hpp" />
-    <ClInclude Include="K_RenderableObject.hpp" />
     <ClInclude Include="K_RenderEngine.hpp" />
     <ClInclude Include="K_RenderID.hpp" />
-    <ClInclude Include="K_RendererObject.hpp" />
     <ClInclude Include="K_Resource.hpp" />
     <ClInclude Include="K_ResourceCache.hpp" />
     <ClInclude Include="K_ResourceHeader.hpp" />
@@ -172,15 +177,18 @@
     <ClInclude Include="K_ShaderResource.hpp" />
     <ClInclude Include="K_TextResource.hpp" />
     <ClInclude Include="K_TextureResource.hpp" />
+    <ClInclude Include="K_Vector.hpp" />
     <ClInclude Include="K_Vertex.hpp" />
     <ClInclude Include="K_VertexBuffer.hpp" />
     <ClInclude Include="K_WinApiWindow.hpp" />
     <ClInclude Include="K_Window.hpp" />
     <ClInclude Include="K_WindowConfig.hpp" />
     <ClInclude Include="K_WinFileHandler.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="K_RenderBatch.hpp" />
+    <ClInclude Include="TestResourceCache.hpp" />
+    <ClInclude Include="TestResourceManager.hpp" />
+    <ClInclude Include="TestTextResource.hpp" />
+    <ClInclude Include="TestResource.hpp" />
+    <ClInclude Include="TestResourceHeader.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

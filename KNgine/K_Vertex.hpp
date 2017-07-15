@@ -26,12 +26,26 @@ struct K_UV
 	float _v;
 };
 
+struct K_Normal
+{
+	float _x;
+	float _y;
+	float _z;
+};
+
 
 struct K_Vertex
 {
 	K_Position	_position;
 	K_Color		_color;
 	K_UV		_uv;
+	K_Normal    _normal;
+
+	void setUV(float u, float v)
+	{
+		_uv._u = u;
+		_uv._v = v;
+	}
 };
 
 

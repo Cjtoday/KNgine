@@ -120,6 +120,7 @@ void K_WinApiWindow::swapBuffers()
 	if (!SwapBuffers(_hDeviceContext))
 	{
 		K_Error error("K_Window Error", "Error swapping window buffer");
+		K_Error::dump();
 	}
 }
 

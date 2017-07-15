@@ -4,6 +4,9 @@
 #include "K_EntityComponent.hpp"
 #include "K_Resource.hpp"
 #include "K_VertexBuffer.hpp"
+#include "K_Vector.hpp"
+
+#include <memory>
 
 
 class K_RenderableComponent : public K_EntityComponent
@@ -18,13 +21,32 @@ public:
 
 	virtual const K_VertexBuffer& getVertexData();
 	
+	float _rotateX;
+	float _rotateY;
+	float _rotateZ;
+
+	float _translateX;
+	float _translateY;
+	float _translateZ;
+
+	float _scaleX;
+	float _scaleY;
+	float _scaleZ;
 
 private:
 
+
+
+
 	K_VertexBuffer _vertexData;
-	K_Texture _texture;
+
+	
+
 
 };
+
+typedef std::weak_ptr<K_RenderableComponent> K_WeakRenderableComponentPtr;
+typedef std::shared_ptr<K_RenderableComponent> K_RenderableComponentPtr;
 
 
 #endif // __K_RENDERABLECOMPONENT_HPP__

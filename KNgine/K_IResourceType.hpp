@@ -1,7 +1,7 @@
 #ifndef __K_IRESOURCETYPE_HPP__
 #define __K_IRESOURCETYPE_HPP__
 
-
+#include <memory>
 #include <string>
 
 class K_IResourceType
@@ -14,6 +14,9 @@ public:
 
 private:
 };
+
+//typedef std::weak_ptr<K_IResourceType> K_WeakResourcePtr;
+//typedef std::shared_ptr<K_IResourceType> K_ResourcePtr;
 
 
 #endif // __K_IRESOURCETYPE_HPP__

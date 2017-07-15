@@ -67,6 +67,12 @@
     <Filter Include="Header Files\User Input Module">
       <UniqueIdentifier>{848923a4-88e0-400b-ad71-feeee797c0ec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Process Manager">
+      <UniqueIdentifier>{9fa29346-8b06-4bb2-8291-4f7878045759}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\test">
+      <UniqueIdentifier>{d5147136-6eec-4b32-98e2-4ad7ccfbdc10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="K_Error.cpp">
@@ -114,9 +120,6 @@
     <ClCompile Include="K_Keys.cpp">
       <Filter>Source Files\User Input Module</Filter>
     </ClCompile>
-    <ClCompile Include="K_RenderableObject.cpp">
-      <Filter>Source Files\Graphics Module</Filter>
-    </ClCompile>
     <ClCompile Include="K_ShaderResource.cpp">
       <Filter>Source Files\Resource Module</Filter>
     </ClCompile>
@@ -125,6 +128,21 @@
     </ClCompile>
     <ClCompile Include="K_VertexBuffer.cpp">
       <Filter>Source Files\Graphics Module</Filter>
+    </ClCompile>
+    <ClCompile Include="K_ProcessManager.cpp">
+      <Filter>Source Files\Process Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="K_Vector.cpp">
+      <Filter>Source Files\Graphics Module</Filter>
+    </ClCompile>
+    <ClCompile Include="TestResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestResourceHeader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTextResource.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -194,9 +212,6 @@
     <ClInclude Include="K_ImageDecoder.hpp">
       <Filter>Header Files\Utility Module</Filter>
     </ClInclude>
-    <ClInclude Include="K_RendererObject.hpp">
-      <Filter>Header Files\Graphics Module</Filter>
-    </ClInclude>
     <ClInclude Include="K_TextResource.hpp">
       <Filter>Header Files\Resource Module</Filter>
     </ClInclude>
@@ -215,19 +230,38 @@
     <ClInclude Include="K_Window.hpp">
       <Filter>Header Files\Window Module</Filter>
     </ClInclude>
-    <ClInclude Include="K_RenderableObject.hpp">
-      <Filter>Header Files\Graphics Module</Filter>
-    </ClInclude>
     <ClInclude Include="K_MeshResource.hpp">
       <Filter>Header Files\Resource Module</Filter>
     </ClInclude>
     <ClInclude Include="K_RenderID.hpp">
       <Filter>Header Files\Graphics Module</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="K_RenderBatch.hpp">
+    <ClInclude Include="K_Vector.hpp">
       <Filter>Header Files\Graphics Module</Filter>
-    </None>
+    </ClInclude>
+    <ClInclude Include="K_Process.hpp">
+      <Filter>Header Files\Process Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_ProcessManager.hpp">
+      <Filter>Header Files\Process Module</Filter>
+    </ClInclude>
+    <ClInclude Include="TestResourceCache.hpp">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="TestResourceManager.hpp">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTextResource.hpp">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="TestResource.hpp">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="K_Logger.hpp">
+      <Filter>Header Files\Utility Module</Filter>
+    </ClInclude>
+    <ClInclude Include="TestResourceHeader.hpp">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,6 +13,12 @@ public:
 	K_VertexBuffer();
 	~K_VertexBuffer();
 
+	void addVertex(K_Vertex vertex);
+
+	void appendBuffer(K_VertexBuffer& buffer);
+	void clearBuffer(void);
+	std::vector<K_Vertex>& getData();
+
 private:
 
 

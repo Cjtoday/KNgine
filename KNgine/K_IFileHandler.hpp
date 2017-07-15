@@ -17,8 +17,6 @@ public:
 
 	virtual void readBinaryToBuffer(const char* fileName, std::vector<unsigned char>& dataBuffe) = 0;
 	virtual void writeBinaryToBuffer(const char* fileName, const std::vector<unsigned char>& dataBuffer) = 0;
-
-
 };
 
 #endif // __K_FILEMANAGER_H__

@@ -16,7 +16,6 @@ public:
 	virtual void update() = 0;
 	virtual void initilize(const tinyxml2::XMLElement* descriptorElement) = 0;
 	
-
 };
 
 

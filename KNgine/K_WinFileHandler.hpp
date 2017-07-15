@@ -16,9 +16,6 @@ public:
 
 	virtual void readBinaryToBuffer(const char* fileName, std::vector<unsigned char>& dataBuffe);
 	virtual void writeBinaryToBuffer(const char* fileName, const std::vector<unsigned char>& dataBuffer);
-
-private:
-
 };
 
 

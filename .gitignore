@@ -1,1 +1,6 @@
 KNgine.VC.VC.opendb
+*.obj
+*.tlog
+*.log
+*.idb
+*.pdp

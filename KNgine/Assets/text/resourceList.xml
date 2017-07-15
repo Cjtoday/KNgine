@@ -1,2 +1,6 @@
 <location id ="test">Assets/text/tester.txt</location>
 <location id ="Hello">Assets/text/hello_world.txt</location>
+<location id ="monkey">Assets/text/monkey.obj</location>
+<location id ="cube">Assets/text/cube.obj</location>
+<location id ="square">Assets/text/square.obj</location>
+<location id ="sprite">Assets/text/sprite.obj</location>

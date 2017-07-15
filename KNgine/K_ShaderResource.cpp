@@ -2,7 +2,7 @@
 #include "K_FileManager.hpp"
 
 
-K_ShaderResource::K_ShaderResource()
+K_ShaderResource::K_ShaderResource() : _shaderID(0)
 {
 
 }
@@ -25,4 +25,9 @@ void K_ShaderResource::setShaderID(K_RenderID id)
 K_RenderID K_ShaderResource::getShaderID()
 {
 	return _shaderID;
+}
+
+std::string & K_ShaderResource::getShaderCode()
+{
+	return _shaderCode;
 }

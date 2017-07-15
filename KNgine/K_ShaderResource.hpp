@@ -17,6 +17,7 @@ public:
 	virtual void initilize(std::string definitionLocation);
 	void setShaderID(K_RenderID id);
 	K_RenderID getShaderID();
+	std::string& getShaderCode();
 
 private:
 

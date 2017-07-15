@@ -16,7 +16,6 @@ K_ResourceManager::~K_ResourceManager()
 }
 
 
-
 K_Text K_ResourceManager::getTextResource(std::string id)
 {
 	K_ResourceHeader<K_TextResource>* resourceHeader = _textResourceCache.getResourceHeader(id);

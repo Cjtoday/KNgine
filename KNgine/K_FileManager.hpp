@@ -6,7 +6,7 @@
 
 #include "K_IFileHandler.hpp"
 #include "K_Config.hpp"
-
+#include "K_VertexBuffer.hpp"
 
 class K_FileManager
 {
@@ -20,6 +20,11 @@ public:
 	
 	void readBinaryToBuffer(const char* fileName,  std::vector<unsigned char>& dataBuffer);
 	void writeBinaryToBuffer(const char* fileName, const std::vector<unsigned char>& dataBuffer);
+
+	std::vector<std::string> getDirectoryContents(std::string directory);
+	std::string removeFileExtension(std::string filename);
+
+	K_VertexBuffer decodeObjFileToVertexBuffer(const std::string& objFile);
 	
 private:
 
