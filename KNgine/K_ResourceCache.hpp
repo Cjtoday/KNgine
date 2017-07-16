@@ -78,6 +78,8 @@ void K_ResourceCache<T>::cleanCache()
 template<typename T>
 void K_ResourceCache<T>::initilizeResourceHeaders(std::string resourceDirectory)
 {
+	K_PRINTLN_DEBUG("Initilizing Resource Cache from directory: %s", resourceDirectory.c_str());
+
 	K_FileManagerPtr fm = K_FileManager::instance();
 	std::vector<std::string> files;
 	fm->getDirectoryContents(files, resourceDirectory);
@@ -87,6 +89,7 @@ void K_ResourceCache<T>::initilizeResourceHeaders(std::string resourceDirectory)
 		std::string id = fm->removeFilePathAndExtension(file);
 		if (_resourceHeaders.find(id) == _resourceHeaders.end())
 		{
+			K_PRINTLN_DEBUG("%10s: %s", "resource found:", id.c_str());
 			_resourceHeaders.insert(std::pair<std::string, K_ResourceHeader<T>>(id, K_ResourceHeader<T>(file)));
 		}
 	}

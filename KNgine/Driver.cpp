@@ -8,9 +8,10 @@
 #include "K_Error.hpp"
 #include "K_WinApiWindow.hpp"
 #include "K_ShaderResource.hpp"
-
 #include "K_RenderEngine.hpp"
 #include "K_ImageDecoder.hpp"
+#include "K_Logger.hpp"
+
 
 #include <stdlib.h>
 #include <ctime>
@@ -20,7 +21,6 @@
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
 
-#include "K_Logger.hpp"
 
 K_ResourceManager _manager;
 
@@ -208,10 +208,6 @@ int main(int argc, char** args)
 			i += 1;
 		}
 		K_PRINT_DEBUG("updates %d", i);
-		//printf("updates %d", i);
-
-		//_renderManager.render(lag / MS_PER_UPDATE);
-
 
 		for (auto & vertex : vertexBuffer.getData())
 		{
@@ -269,6 +265,5 @@ int main(int argc, char** args)
 	}
 
 	K_PRINTLN_DEBUG("\nProgram executed sucessfully press enter to terminate...");
-	//printf("\nProgram executed sucessfully press enter to terminate...");
 	getchar();
 }
