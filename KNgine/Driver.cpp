@@ -36,7 +36,7 @@ void inputCallback(K_WinApiWindow* window, K_KeyCode keyCode, unsigned int state
 	}
 	if (keyCode == K_KEY_LCTRL && state == K_KEY_STATE_DOWN)
 	{
-		//_manager.dumpResourcesInfo();
+		_manager.printCacheData();
 	}
 	if(keyCode == K_KEY_W && state == K_KEY_STATE_DOWN)
 	{
@@ -73,6 +73,10 @@ int main(int argc, char** args)
 	K_EntityManager _entityManager(_manager);
 
 	K_TextureResourcePtr texture_0 = _manager.getTextureResource("Remus_big");
+	K_TextureResourcePtr texture_1 = _manager.getTextureResource("Remus_big");
+	K_TextureResourcePtr texture_2 = _manager.getTextureResource("Remus_big");
+	K_TextureResourcePtr texture_3 = _manager.getTextureResource("Remus_big");
+
 
 	K_TextResourcePtr text_0 = _manager.getTextResource("hello_world");
 	K_TextResourcePtr text_1 = text_0;
@@ -185,9 +189,8 @@ int main(int argc, char** args)
 	time_t current;
 	double lag = 0.0;
 	double elapsedTime = 0.0;
-	while (true)
 
-	while(!_window->shouldClose())
+	while(_window->shouldClose() == false)
 	{
 		_window->swapBuffers();
 	
@@ -201,6 +204,7 @@ int main(int argc, char** args)
 
 		//_somethingManager.processInput()
 		int i = 0;
+		
 		while (lag >= MS_PER_UPDATE)
 		{
 			//_processManager.tick(MS_PER_UPDATE);
@@ -208,7 +212,7 @@ int main(int argc, char** args)
 			i += 1;
 		}
 		K_PRINT_DEBUG("updates %d", i);
-
+		
 		for (auto & vertex : vertexBuffer.getData())
 		{
 			if (swapper == false)

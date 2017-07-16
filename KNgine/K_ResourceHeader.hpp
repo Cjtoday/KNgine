@@ -3,6 +3,7 @@
 
 
 #include "K_Resource.hpp"
+#include "K_Logger.hpp"
 
 #include <string>
 
@@ -26,7 +27,7 @@ private:
 };
 
 template<typename T>
-K_ResourceHeader<T>::K_ResourceHeader(std::string location) : _location(location)
+K_ResourceHeader<T>::K_ResourceHeader(std::string location) : _location(location), _resource()
 {
 }
 
@@ -40,7 +41,9 @@ K_ResourceHeader<T>::~K_ResourceHeader()
 template<typename T>
 void K_ResourceHeader<T>::initilizeResource()
 {
-	_resource = std::make_shared<T>();
+	K_PRINTLN_DEBUG("RESOURCE %s COUNT: %d", _location.c_str(), _resource.use_count());
+	_resource.reset(new T());
+	K_PRINTLN_DEBUG("RESOURCE %s COUNT: %d", _location.c_str(), _resource.use_count());
 	_resource->initilize(_location);
 }
 

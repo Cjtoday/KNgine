@@ -178,8 +178,8 @@ LRESULT K_WinApiWindow::msgHandler(HWND hWnd, UINT message, WPARAM wParam, LPARA
 		result = 0;
 		break;
 	case WM_DESTROY:
-		PostQuitMessage(0);
 		_shouldClose = true;
+		PostQuitMessage(0);
 		result = 0;
 		break;
 	default:

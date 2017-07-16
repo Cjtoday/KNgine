@@ -26,6 +26,8 @@ public:
 	K_ShaderResourcePtr getShaderResource(std::string id);
 	K_TextureResourcePtr getTextureResource(std::string id);
 
+	void printCacheData();
+
 private:
 
 	K_ResourceCache<K_TextResource> _textResourceCache;

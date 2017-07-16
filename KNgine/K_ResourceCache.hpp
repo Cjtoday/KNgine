@@ -26,6 +26,7 @@ public:
 
 	std::shared_ptr<T> getResource(std::string id);
 	void cleanCache();
+	void printResourceHeaderInfo();
 
 private:
 
@@ -59,12 +60,12 @@ std::shared_ptr<T> K_ResourceCache<T>::getResource(std::string id)
 		K_PRINTLN_DEBUG("ERROR NO ID %s", id.c_str());//TODO Error
 	}
 	//initilize Resource
-	K_ResourceHeader<T> header = iter->second;
-	if (header.getReferenceCount() == 0)
+	K_ResourceHeader<T>* header = &(iter->second);
+	if (header->getReferenceCount() == 0)
 	{
-		header.initilizeResource();
+		header->initilizeResource();
 	}
-	return header.getResource();
+	return header->getResource();
 }
 
 
@@ -95,5 +96,14 @@ void K_ResourceCache<T>::initilizeResourceHeaders(std::string resourceDirectory)
 	}
 }
 
+
+template<typename T>
+void K_ResourceCache<T>::printResourceHeaderInfo()
+{
+	for (std::map<std::string, K_ResourceHeader<T>>::iterator iter = _resourceHeaders.begin(); iter != _resourceHeaders.end(); ++iter)
+	{
+		K_PRINTLN_DEBUG("Resource: %s	Active References: %d", iter->first.c_str(), iter->second.getReferenceCount());
+	}
+}
 
 #endif // __K_RESOURCECACHE_HPP__

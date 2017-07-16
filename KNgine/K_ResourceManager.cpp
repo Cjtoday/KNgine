@@ -42,3 +42,30 @@ K_TextureResourcePtr K_ResourceManager::getTextureResource(std::string id)
 {
 	return _textureResourceCache.getResource(id);
 }
+
+void K_ResourceManager::printCacheData()
+{
+	printf("\n-------------------------------------------------------\n");
+	printf("Resource Cache dump\n");
+	printf("-------------------------------------------------------\n");
+
+	printf("Text Resources\n");
+	printf("---------------------------------------------\n");
+	_textResourceCache.printResourceHeaderInfo();
+	printf("---------------------------------------------\n\n");
+
+	printf("Entity Template Resources\n");
+	printf("---------------------------------------------\n");
+	_entityTemplateResourceCache.printResourceHeaderInfo();
+	printf("---------------------------------------------\n\n");
+
+	printf("Texture Resurces\n");
+	printf("---------------------------------------------\n");
+	_textureResourceCache.printResourceHeaderInfo();
+	printf("---------------------------------------------\n\n");
+
+	printf("Shader Resurces\n");
+	printf("---------------------------------------------\n");
+	_shaderResourceCache.printResourceHeaderInfo();
+	printf("---------------------------------------------\n\n");
+}
