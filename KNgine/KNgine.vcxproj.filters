@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Resource Module">
-      <UniqueIdentifier>{70088629-d2e0-439b-aac3-51c4a31cc3cf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Error Module">
       <UniqueIdentifier>{918d7150-e23b-4b62-a03e-6c59230e5ccc}</UniqueIdentifier>
     </Filter>
@@ -70,7 +67,7 @@
     <Filter Include="Source Files\Process Manager">
       <UniqueIdentifier>{9fa29346-8b06-4bb2-8291-4f7878045759}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\test">
+    <Filter Include="Header Files\Resource Module">
       <UniqueIdentifier>{d5147136-6eec-4b32-98e2-4ad7ccfbdc10}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -86,9 +83,6 @@
     </ClCompile>
     <ClCompile Include="K_FileManager.cpp">
       <Filter>Source Files\File Module</Filter>
-    </ClCompile>
-    <ClCompile Include="K_ResourceManager.cpp">
-      <Filter>Source Files\Resource Module</Filter>
     </ClCompile>
     <ClCompile Include="K_Entity.cpp">
       <Filter>Source Files\Entity Module</Filter>
@@ -135,14 +129,8 @@
     <ClCompile Include="K_Vector.cpp">
       <Filter>Source Files\Graphics Module</Filter>
     </ClCompile>
-    <ClCompile Include="TestResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TestResourceHeader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TestTextResource.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="K_ResourceManager.cpp">
+      <Filter>Source Files\Resource Module</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -155,26 +143,8 @@
     <ClInclude Include="K_FileManager.hpp">
       <Filter>Header Files\File Module</Filter>
     </ClInclude>
-    <ClInclude Include="K_IFileHandler.hpp">
-      <Filter>Header Files\File Module</Filter>
-    </ClInclude>
     <ClInclude Include="K_WinFileHandler.hpp">
       <Filter>Header Files\File Module</Filter>
-    </ClInclude>
-    <ClInclude Include="K_Resource.hpp">
-      <Filter>Header Files\Resource Module</Filter>
-    </ClInclude>
-    <ClInclude Include="K_ResourceHeader.hpp">
-      <Filter>Header Files\Resource Module</Filter>
-    </ClInclude>
-    <ClInclude Include="K_ResourceCache.hpp">
-      <Filter>Header Files\Resource Module</Filter>
-    </ClInclude>
-    <ClInclude Include="K_IResourceType.hpp">
-      <Filter>Header Files\Resource Module</Filter>
-    </ClInclude>
-    <ClInclude Include="K_ResourceManager.hpp">
-      <Filter>Header Files\Resource Module</Filter>
     </ClInclude>
     <ClInclude Include="K_Entity.hpp">
       <Filter>Header Files\Entity Module</Filter>
@@ -187,9 +157,6 @@
     </ClInclude>
     <ClInclude Include="K_AbstractEntityFactory.hpp">
       <Filter>Header Files\Entity Module</Filter>
-    </ClInclude>
-    <ClInclude Include="K_EntityTemplateResource.hpp">
-      <Filter>Header Files\Resource Module</Filter>
     </ClInclude>
     <ClInclude Include="K_RenderEngine.hpp">
       <Filter>Header Files\Graphics Module</Filter>
@@ -206,17 +173,8 @@
     <ClInclude Include="K_RenderableComponent.hpp">
       <Filter>Header Files\Entity Module</Filter>
     </ClInclude>
-    <ClInclude Include="K_TextureResource.hpp">
-      <Filter>Header Files\Resource Module</Filter>
-    </ClInclude>
     <ClInclude Include="K_ImageDecoder.hpp">
       <Filter>Header Files\Utility Module</Filter>
-    </ClInclude>
-    <ClInclude Include="K_TextResource.hpp">
-      <Filter>Header Files\Resource Module</Filter>
-    </ClInclude>
-    <ClInclude Include="K_ShaderResource.hpp">
-      <Filter>Header Files\Resource Module</Filter>
     </ClInclude>
     <ClInclude Include="K_WindowConfig.hpp">
       <Filter>Header Files\Window Module</Filter>
@@ -230,9 +188,6 @@
     <ClInclude Include="K_Window.hpp">
       <Filter>Header Files\Window Module</Filter>
     </ClInclude>
-    <ClInclude Include="K_MeshResource.hpp">
-      <Filter>Header Files\Resource Module</Filter>
-    </ClInclude>
     <ClInclude Include="K_RenderID.hpp">
       <Filter>Header Files\Graphics Module</Filter>
     </ClInclude>
@@ -245,23 +200,38 @@
     <ClInclude Include="K_ProcessManager.hpp">
       <Filter>Header Files\Process Module</Filter>
     </ClInclude>
-    <ClInclude Include="TestResourceCache.hpp">
-      <Filter>Header Files\test</Filter>
-    </ClInclude>
-    <ClInclude Include="TestResourceManager.hpp">
-      <Filter>Header Files\test</Filter>
-    </ClInclude>
-    <ClInclude Include="TestTextResource.hpp">
-      <Filter>Header Files\test</Filter>
-    </ClInclude>
-    <ClInclude Include="TestResource.hpp">
-      <Filter>Header Files\test</Filter>
-    </ClInclude>
     <ClInclude Include="K_Logger.hpp">
       <Filter>Header Files\Utility Module</Filter>
     </ClInclude>
-    <ClInclude Include="TestResourceHeader.hpp">
-      <Filter>Header Files\test</Filter>
+    <ClInclude Include="K_Resource.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_ResourceCache.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_ResourceHeader.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_ResourceManager.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_TextResource.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_TextureResource.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_ShaderResource.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_MeshResource.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_EntityTemplateResource.hpp">
+      <Filter>Header Files\Resource Module</Filter>
+    </ClInclude>
+    <ClInclude Include="K_FileHandler.hpp">
+      <Filter>Header Files\File Module</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

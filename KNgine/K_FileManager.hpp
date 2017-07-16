@@ -1,18 +1,25 @@
 #ifndef __K_FILEMANAGER_H__
 #define __K_FILEMANAGER_H__
 
-#include<vector>
-#include <string>
 
-#include "K_IFileHandler.hpp"
+#include "K_FileHandler.hpp"
 #include "K_Config.hpp"
 #include "K_VertexBuffer.hpp"
+
+#include<vector>
+#include <string>
+#include <memory>
+
+
+class K_FileManager;
+typedef std::shared_ptr<K_FileManager> K_FileManagerPtr;
+
 
 class K_FileManager
 {
 public:
 
-	static K_FileManager& instance();
+	static K_FileManagerPtr instance();
 	~K_FileManager();
 
 	void readTextToString(const char* fileName, std::string& textData);
@@ -21,23 +28,25 @@ public:
 	void readBinaryToBuffer(const char* fileName,  std::vector<unsigned char>& dataBuffer);
 	void writeBinaryToBuffer(const char* fileName, const std::vector<unsigned char>& dataBuffer);
 
-	std::vector<std::string> getDirectoryContents(std::string directory);
+	void getDirectoryContents(std::vector<std::string>& outDirContents, std::string directory);
+
 	std::string removeFileExtension(std::string filename);
+	std::string removeFilePath(std::string filepath);
+	std::string removeFilePathAndExtension(std::string filepath);
 
 	K_VertexBuffer decodeObjFileToVertexBuffer(const std::string& objFile);
 	
 private:
 
 	static bool _initilized;
-	static K_FileManager* _singleInstance;
+	static K_FileManagerPtr _singleInstance;
 
-	K_IFileHandler* _fileHandler;
+	K_FileHandler* _fileHandler;
 
 	K_FileManager();
 	void initilize();
-
-
 };
+
 
 
 #endif // __K_FILEMANAGER_H__

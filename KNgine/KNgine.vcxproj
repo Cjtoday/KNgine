@@ -137,7 +137,6 @@
     <ClCompile Include="K_MeshResource.cpp" />
     <ClCompile Include="K_ProcessManager.cpp" />
     <ClCompile Include="K_RenderEngine.cpp" />
-    <ClCompile Include="K_ResourceManager.cpp" />
     <ClCompile Include="K_ShaderResource.cpp" />
     <ClCompile Include="K_TextResource.cpp" />
     <ClCompile Include="K_TextureResource.cpp" />
@@ -145,9 +144,7 @@
     <ClCompile Include="K_VertexBuffer.cpp" />
     <ClCompile Include="K_WinApiWindow.cpp" />
     <ClCompile Include="K_WinFileHandler.cpp" />
-    <ClCompile Include="TestResourceManager.cpp" />
-    <ClCompile Include="TestResourceHeader.cpp" />
-    <ClCompile Include="TestTextResource.cpp" />
+    <ClCompile Include="K_ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="K_AbstractEntityFactory.hpp" />
@@ -158,9 +155,8 @@
     <ClInclude Include="K_EntityTemplateResource.hpp" />
     <ClInclude Include="K_Error.hpp" />
     <ClInclude Include="K_FileManager.hpp" />
-    <ClInclude Include="K_IFileHandler.hpp" />
+    <ClInclude Include="K_FileHandler.hpp" />
     <ClInclude Include="K_ImageDecoder.hpp" />
-    <ClInclude Include="K_IResourceType.hpp" />
     <ClInclude Include="K_IWindowManager.hpp" />
     <ClInclude Include="K_Keys.hpp" />
     <ClInclude Include="K_Logger.hpp" />
@@ -170,10 +166,6 @@
     <ClInclude Include="K_RenderableComponent.hpp" />
     <ClInclude Include="K_RenderEngine.hpp" />
     <ClInclude Include="K_RenderID.hpp" />
-    <ClInclude Include="K_Resource.hpp" />
-    <ClInclude Include="K_ResourceCache.hpp" />
-    <ClInclude Include="K_ResourceHeader.hpp" />
-    <ClInclude Include="K_ResourceManager.hpp" />
     <ClInclude Include="K_ShaderResource.hpp" />
     <ClInclude Include="K_TextResource.hpp" />
     <ClInclude Include="K_TextureResource.hpp" />
@@ -184,11 +176,10 @@
     <ClInclude Include="K_Window.hpp" />
     <ClInclude Include="K_WindowConfig.hpp" />
     <ClInclude Include="K_WinFileHandler.hpp" />
-    <ClInclude Include="TestResourceCache.hpp" />
-    <ClInclude Include="TestResourceManager.hpp" />
-    <ClInclude Include="TestTextResource.hpp" />
-    <ClInclude Include="TestResource.hpp" />
-    <ClInclude Include="TestResourceHeader.hpp" />
+    <ClInclude Include="K_ResourceCache.hpp" />
+    <ClInclude Include="K_ResourceManager.hpp" />
+    <ClInclude Include="K_Resource.hpp" />
+    <ClInclude Include="K_ResourceHeader.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

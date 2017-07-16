@@ -19,7 +19,7 @@ public:
 	~K_RenderEngine();
 
 	void initilize();
-	K_RenderID createShaderProgram(K_Shader& vertexShader, K_Shader& fragmentShader);
+	K_RenderID createShaderProgram(K_ShaderResourcePtr vertexShader, K_ShaderResourcePtr fragmentShader);
 
 	K_RenderID registerComponent(K_WeakRenderableComponentPtr renderableComponent);
 	void render();
@@ -29,7 +29,7 @@ private:
 
 	std::vector<K_WeakRenderableComponentPtr> _components;
 
-	void compileShader(K_Shader& shader);
+	void compileShader(K_ShaderResourcePtr shader);
 	void linkShaders(K_RenderID shaderProgramID, K_RenderID vertShaderID, K_RenderID fragShaderID);
 
 };

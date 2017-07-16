@@ -29,7 +29,7 @@ void K_RenderEngine::initilize()
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
-K_RenderID K_RenderEngine::createShaderProgram(K_Shader & vertexShader, K_Shader & fragmentShader)
+K_RenderID K_RenderEngine::createShaderProgram(K_ShaderResourcePtr vertexShader, K_ShaderResourcePtr fragmentShader)
 {
 
 	K_RenderID programID = glCreateProgram();
@@ -81,7 +81,7 @@ void K_RenderEngine::render()
 	}
 }
 
-void K_RenderEngine::compileShader(K_Shader& shader)
+void K_RenderEngine::compileShader(K_ShaderResourcePtr shader)
 {
 	const char* shaderCode = shader->getShaderCode().c_str();
 

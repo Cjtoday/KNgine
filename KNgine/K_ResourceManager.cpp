@@ -1,14 +1,16 @@
 #include "K_ResourceManager.hpp"
+#include "K_Config.hpp"
 
 
-K_ResourceManager::K_ResourceManager() :
-	_textResourceCache(K_TEXT_RESOURCE_LIST_LOCATION),
-	_entityTemplateResourceCache(K_ENTITYTEMPLATE_RESOURCE_LIST_LOCATION),
-	_textureResourceCache(K_TEXTURE_RESOURCE_LIST_LOCATION),
-	_shaderResourceCache(K_SHADER_RESOURCE_LIST_LOCATION)
+K_ResourceManager::K_ResourceManager(): 
+	_textResourceCache(K_TEXT_RESOURCE_DIR),
+	_entityTemplateResourceCache(K_ENTITYTEMPLATE_RESOURCE_DIR),
+	_meshResourceCache(K_MESH_RESOURCE_DIR),
+	_shaderResourceCache(K_SHADER_RESOURCE_DIR),
+	_textureResourceCache(K_TEXTURE_RESOURCE_DIR)
 {
-}
 
+}
 
 
 K_ResourceManager::~K_ResourceManager()
@@ -16,93 +18,27 @@ K_ResourceManager::~K_ResourceManager()
 }
 
 
-K_Text K_ResourceManager::getTextResource(std::string id)
+K_TextResourcePtr K_ResourceManager::getTextResource(std::string id)
 {
-	K_ResourceHeader<K_TextResource>* resourceHeader = _textResourceCache.getResourceHeader(id);
-
-	if (!(resourceHeader->getReferenceCount()))
-	{
-		K_TextResource* resource = new K_TextResource();
-		resource->initilize(resourceHeader->getResourceDefinitionLocation());
-
-		resourceHeader->setResourceData(resource);
-	}
-
-	return K_Text(resourceHeader->getReferenceCount(), resourceHeader->getResourceData());
+	return _textResourceCache.getResource(id);
 }
 
-
-
-K_EntityTemplate K_ResourceManager::getEntityTemplateResource(std::string id)
+K_EntityTemplateResourcePtr K_ResourceManager::getEntityTemplateResource(std::string id)
 {
-	K_ResourceHeader<K_EntityTemplateResource>* resourceHeader = _entityTemplateResourceCache.getResourceHeader(id);
-
-	if (!(resourceHeader->getReferenceCount()))
-	{
-		K_EntityTemplateResource* resource = new K_EntityTemplateResource();
-		resource->initilize(resourceHeader->getResourceDefinitionLocation());
-
-		resourceHeader->setResourceData(resource);
-	}
-
-	return K_EntityTemplate(resourceHeader->getReferenceCount(), resourceHeader->getResourceData());
+	return _entityTemplateResourceCache.getResource(id);
 }
 
-
-
-K_Texture K_ResourceManager::getTextureResource(std::string id)
+K_MeshResourcePtr K_ResourceManager::getMeshResource(std::string id)
 {
-	K_ResourceHeader<K_TextureResource>* resourceHeader = _textureResourceCache.getResourceHeader(id);
-
-	if (!(resourceHeader->getReferenceCount()))
-	{
-		K_TextureResource* resource = new K_TextureResource();
-		resource->initilize(resourceHeader->getResourceDefinitionLocation());
-
-		resourceHeader->setResourceData(resource);
-	}
-
-	return K_Texture(resourceHeader->getReferenceCount(), resourceHeader->getResourceData());
+	return _meshResourceCache.getResource(id);
 }
 
-K_Shader K_ResourceManager::getShaderResource(std::string id)
+K_ShaderResourcePtr K_ResourceManager::getShaderResource(std::string id)
 {
-	K_ResourceHeader<K_ShaderResource>* resourceHeader = _shaderResourceCache.getResourceHeader(id);
-
-	if (!(resourceHeader->getReferenceCount()))
-	{
-		K_ShaderResource* resource = new K_ShaderResource();
-		resource->initilize(resourceHeader->getResourceDefinitionLocation());
-
-		resourceHeader->setResourceData(resource);
-	}
-	return K_Shader(resourceHeader->getReferenceCount(), resourceHeader->getResourceData());
+	return _shaderResourceCache.getResource(id);
 }
 
-
-void K_ResourceManager::dumpResourcesInfo()
+K_TextureResourcePtr K_ResourceManager::getTextureResource(std::string id)
 {
-	printf("\n-------------------------------------------------------\n");
-	printf("Resource Cache dump\n");
-	printf("-------------------------------------------------------\n");
-
-	printf("Text Resources\n");
-	printf("---------------------------------------------\n");
-	_textResourceCache.printResourceHeaderInfo();
-	printf("---------------------------------------------\n\n");
-
-	printf("Entity Template Resources\n");
-	printf("---------------------------------------------\n");
-	_entityTemplateResourceCache.printResourceHeaderInfo();
-	printf("---------------------------------------------\n\n");
-
-	printf("Texture Resurces\n");
-	printf("---------------------------------------------\n");
-	_textureResourceCache.printResourceHeaderInfo();
-	printf("---------------------------------------------\n\n");
-
-	printf("Shader Resurces\n");
-	printf("---------------------------------------------\n");
-	_shaderResourceCache.printResourceHeaderInfo();
-	printf("---------------------------------------------\n\n");
+	return _textureResourceCache.getResource(id);
 }

@@ -1,13 +1,14 @@
 #ifndef __K_SHADERRESOURCE_HPP__
 #define __K_SHADERRESOURCE_HPP__
 
-#include "K_IResourceType.hpp"
+
 #include "K_Resource.hpp"
 #include "K_RenderID.hpp"
+
 #include <string>
 
 
-class K_ShaderResource : public K_IResourceType
+class K_ShaderResource : public K_Resource
 {
 
 public:
@@ -26,7 +27,9 @@ private:
 
 };
 
-typedef K_Resource<K_ShaderResource> K_Shader;
+
+typedef std::shared_ptr<K_ShaderResource> K_ShaderResourcePtr;
+typedef std::weak_ptr<K_ShaderResource> K_WeakShaderResourcePtr;
 
 
 #endif // __K_SHADERRESOURCE_HPP__

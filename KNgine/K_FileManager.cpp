@@ -2,12 +2,15 @@
 #include "K_WinFileHandler.hpp"
 #include "K_Error.hpp"
 
+
 bool K_FileManager::_initilized = false;
-K_FileManager* K_FileManager::_singleInstance = nullptr;
+K_FileManagerPtr K_FileManager::_singleInstance;
+
 
 K_FileManager::K_FileManager()
 {
 }
+
 
 K_FileManager::~K_FileManager()
 {
@@ -17,15 +20,16 @@ K_FileManager::~K_FileManager()
 	}
 }
 
-K_FileManager& K_FileManager::instance()
+
+K_FileManagerPtr K_FileManager::instance()
 {
 	if (!_initilized)
 	{
-		_singleInstance = new K_FileManager();
+		_singleInstance.reset(new K_FileManager());
 		_singleInstance->initilize();
 	}
 
-	return *_singleInstance;
+	return _singleInstance;
 }
 
 
@@ -43,30 +47,50 @@ void K_FileManager::readTextToString(const char* fileName, std::string & textDat
 	_fileHandler->readTextToString(fileName, textData);
 }
 
+
 void K_FileManager::writeTextBufferToFile(const char* fileName, const std::string & textData)
 {
 	_fileHandler->writeTextBufferToFile(fileName, textData);
 }
+
 
 void K_FileManager::readBinaryToBuffer(const char* fileName, std::vector<unsigned char>& dataBuffer)
 {
 	_fileHandler->readBinaryToBuffer(fileName, dataBuffer);
 }
 
+
 void K_FileManager::writeBinaryToBuffer(const char* fileName, const std::vector<unsigned char>& dataBuffer)
 {
 	_fileHandler->writeBinaryToBuffer(fileName, dataBuffer);
 }
 
-std::vector<std::string> K_FileManager::getDirectoryContents(std::string directory)
+
+void K_FileManager::getDirectoryContents(std::vector<std::string>& outDirContents, std::string directory)
 {
-	return std::vector<std::string>();
+	_fileHandler->getDirectoryContents(outDirContents, directory);
 }
+
 
 std::string K_FileManager::removeFileExtension(std::string filename)
 {
-	return std::string();
+	size_t lastindex = filename.find_last_of(".");
+	return filename.substr(0, lastindex);
 }
+
+
+std::string K_FileManager::removeFilePath(std::string filepath)
+{
+	size_t lastindex = filepath.find_last_of("/");
+	return filepath.substr(lastindex+1, filepath.size());
+}
+
+
+std::string K_FileManager::removeFilePathAndExtension(std::string filepath)
+{
+	return removeFileExtension(removeFilePath(filepath));
+}
+
 
 K_VertexBuffer K_FileManager::decodeObjFileToVertexBuffer(const std::string& objFile)
 {

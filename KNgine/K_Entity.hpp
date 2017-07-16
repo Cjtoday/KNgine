@@ -1,14 +1,13 @@
 #ifndef __K_ENTITY_HPP__
 #define __K_ENTITY_HPP__
 
-
+#include "K_EntityComponent.hpp"
 
 #include <vector>
 
-#include "K_EntityComponent.hpp"
-
 
 typedef unsigned int K_EntityID;
+
 
 class K_Entity
 {
@@ -24,13 +23,12 @@ public:
 	void addComponent(K_EntityComponent* component);
 	void removeComponent(K_EntityComponent* component);
 
-
-
 private:
 
 	std::vector<K_EntityComponent*> _componentList;
 
 	K_EntityID _id;
 };
+
 
 #endif // __K_ENTITY_HPP__

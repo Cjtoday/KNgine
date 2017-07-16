@@ -2,12 +2,10 @@
 #define __K_TEXTRESOURCE_HPP__
 
 
-#include "K_IResourceType.hpp"
 #include "K_Resource.hpp"
 
 
-
-class K_TextResource : public K_IResourceType
+class K_TextResource : public K_Resource
 {
 public:
 	K_TextResource();
@@ -22,7 +20,9 @@ private:
 
 };
 
-typedef K_Resource<K_TextResource> K_Text;
+
+typedef std::shared_ptr<K_TextResource> K_TextResourcePtr;
+typedef std::weak_ptr<K_TextResource> K_WeakTextResourcePtr;
 
 
 #endif // __K_TEXTRESOURCE_HPP__

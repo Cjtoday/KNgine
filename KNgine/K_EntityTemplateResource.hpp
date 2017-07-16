@@ -1,12 +1,11 @@
 #ifndef __K_ENTITYTEMPLATERESOURCE_HPP__
 #define __K_ENTITYTEMPLATERESOURCE_HPP__
 
-#include "K_IResourceType.hpp"
 #include "K_Resource.hpp"
 #include <tinyxml2.h>
 
 
-class K_EntityTemplateResource : public K_IResourceType
+class K_EntityTemplateResource : public K_Resource
 {
 public:
 	K_EntityTemplateResource ();
@@ -20,6 +19,9 @@ private:
 	tinyxml2::XMLDocument _entityTemplate;
 };
 
-typedef K_Resource<K_EntityTemplateResource> K_EntityTemplate;
+
+typedef std::shared_ptr<K_EntityTemplateResource> K_EntityTemplateResourcePtr;
+typedef std::weak_ptr<K_EntityTemplateResource> K_WeakEntityTemplateResourcePtr;
+
 
 #endif // __K_ENTITYTEMPLATERESOURCE_HPP__

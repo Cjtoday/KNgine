@@ -36,7 +36,7 @@ void inputCallback(K_WinApiWindow* window, K_KeyCode keyCode, unsigned int state
 	}
 	if (keyCode == K_KEY_LCTRL && state == K_KEY_STATE_DOWN)
 	{
-		_manager.dumpResourcesInfo();
+		//_manager.dumpResourcesInfo();
 	}
 	if(keyCode == K_KEY_W && state == K_KEY_STATE_DOWN)
 	{
@@ -72,16 +72,16 @@ int main(int argc, char** args)
 
 	K_EntityManager _entityManager(_manager);
 
-	K_Texture texture_0 = _manager.getTextureResource("remus");
+	K_TextureResourcePtr texture_0 = _manager.getTextureResource("Remus_big");
 
-	K_Text text_0 = _manager.getTextResource("Hello");
-	K_Text text_1 = text_0;
+	K_TextResourcePtr text_0 = _manager.getTextResource("hello_world");
+	K_TextResourcePtr text_1 = text_0;
 
 
-	K_Text monkeyobj = _manager.getTextResource("monkey");
-	K_Text squareObj = _manager.getTextResource("sprite");
+	K_TextResourcePtr monkeyobj = _manager.getTextResource("monkey");
+	K_TextResourcePtr squareObj = _manager.getTextResource("sprite");
 
-	K_VertexBuffer vertexBuffer = K_FileManager::instance().decodeObjFileToVertexBuffer(squareObj->getText()); //= K_FileManager::instance().decodeObjFileToVertexBuffer(objMonkey->getText());
+	K_VertexBuffer vertexBuffer = K_FileManager::instance()->decodeObjFileToVertexBuffer(squareObj->getText()); //= K_FileManager::instance().decodeObjFileToVertexBuffer(objMonkey->getText());
 
 	/*
 	for (auto vertex : vertexBuffer.getData())
@@ -91,10 +91,10 @@ int main(int argc, char** args)
 	}
 	*/
 
-	K_Text& text_ref = text_0;
+	K_TextResourcePtr text_ref = text_0;
 
-	K_Shader vertShader = _manager.getShaderResource("testVert");
-	K_Shader fragShader = _manager.getShaderResource("testFrag");
+	K_ShaderResourcePtr vertShader = _manager.getShaderResource("testVert");
+	K_ShaderResourcePtr fragShader = _manager.getShaderResource("testFrag");
 
 
 	K_WindowConfig _windowConfig =

@@ -17,7 +17,7 @@ K_EntityManager::~K_EntityManager()
 
 K_EntityID K_EntityManager::createEntityHandle(std::string id)
 {
-	K_EntityTemplate entityTemplate = _resourceManager.getEntityTemplateResource(id);
+	K_EntityTemplateResourcePtr entityTemplate = _resourceManager.getEntityTemplateResource(id);
 
 	K_EntityID newEntityId = _nextID;
 

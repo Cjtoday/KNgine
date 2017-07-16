@@ -2,14 +2,12 @@
 #define __K_TEXTURERESOURCE_HPP__
 
 
-#include "K_IResourceType.hpp"
 #include "K_Resource.hpp"
-
 
 #include <vector>
 
 
-class K_TextureResource : public K_IResourceType
+class K_TextureResource : public K_Resource
 {
 public:
 	K_TextureResource();
@@ -29,7 +27,8 @@ private:
 };
 
 
-typedef K_Resource<K_TextureResource> K_Texture;
+typedef std::shared_ptr<K_TextureResource> K_TextureResourcePtr;
+typedef std::weak_ptr<K_TextureResource> K_WeakTextureResourcePtr;
 
 
 #endif // __K_TEXTURERESOURCE_HPP__

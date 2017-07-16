@@ -2,133 +2,95 @@
 #define __K_RESOURCECACHE_HPP__
 
 
+#include "K_ResourceHeader.hpp"
+#include "K_Resource.hpp"
+#include "K_FileManager.hpp"
+#include "K_Error.hpp"
+#include "K_Logger.hpp"
+
+#include <type_traits>
+#include <memory>
 #include <string>
 #include <map>
-
-#include "K_ResourceHeader.hpp"
-#include "K_IResourceType.hpp"
-
-#include "K_Error.hpp"
-#include "K_FileManager.hpp"
-
-#include <tinyxml2.h>
-
 
 
 template<typename T>
 class K_ResourceCache
 {
-public:
+	static_assert(std::is_base_of<K_Resource, T>::value, "T must be a decendent of type Resource");
 
-	//Constructor/Destructor
-	///////////////////////////////////////
-	K_ResourceCache(std::string resourceLocations);
+
+public:
+	K_ResourceCache(std::string resourceDirectory);
 	~K_ResourceCache();
 
-
-
-	//Public Functions
-	///////////////////////////////////////
-	K_ResourceHeader<T>* getResourceHeader(std::string id);	
-
-	void printResourceHeaderInfo();
+	std::shared_ptr<T> getResource(std::string id);
+	void cleanCache();
 
 private:
 
-	//Private Functions
-	///////////////////////////////////////
-	void initilizeResourceHeaders(std::string resourceLocations);
+	void initilizeResourceHeaders(std::string resourceDirectory);
 
-
-	//Private DataMemebers
-	///////////////////////////////////////
-	std::map<std::string, K_ResourceHeader<T>*> _resourceHeaders;
-
-
+	std::string _resourceDirectory;
+	std::map<std::string, K_ResourceHeader<T>> _resourceHeaders;
+	
 };
 
 
-//Constructor/Destructor IMPL
-///////////////////////////////////////
 template<typename T>
-K_ResourceCache<T>::K_ResourceCache(std::string resourceLocations)
+K_ResourceCache<T>::K_ResourceCache(std::string resourceDirectory) : _resourceDirectory(resourceDirectory)
 {
-	initilizeResourceHeaders(resourceLocations);
+	initilizeResourceHeaders(resourceDirectory);
 }
 
 
 template<typename T>
 K_ResourceCache<T>::~K_ResourceCache()
 {
-
 }
 
 
-
-//Public Functions IMPL
-///////////////////////////////////////
 template<typename T>
-K_ResourceHeader<T>* K_ResourceCache<T>::getResourceHeader(std::string id)
+std::shared_ptr<T> K_ResourceCache<T>::getResource(std::string id)
 {
-	std::map<std::string, K_ResourceHeader<T>*>::iterator iter = _resourceHeaders.find(id);
-
-	K_Error error1("Resource does not exist", id);
+	auto iter = _resourceHeaders.find(id);
 	if (iter == _resourceHeaders.end())
 	{
-		K_Error::dump();
+		K_PRINTLN_DEBUG("ERROR NO ID %s", id.c_str());//TODO Error
 	}
-	
-
-	return iter->second;
+	//initilize Resource
+	K_ResourceHeader<T> header = iter->second;
+	if (header.getReferenceCount() == 0)
+	{
+		header.initilizeResource();
+	}
+	return header.getResource();
 }
+
 
 template<typename T>
-void K_ResourceCache<T>::printResourceHeaderInfo()
+void K_ResourceCache<T>::cleanCache()
 {
-	for (std::map<std::string, K_ResourceHeader<T>*>::iterator iter = _resourceHeaders.begin(); iter != _resourceHeaders.end(); ++iter)
-	{
-		printf("Resource: %s	Active References: %d\n", iter->first.c_str(), iter->second->getReferenceCount());
-	}
+
 }
 
 
-//Private Functions IMPL
-///////////////////////////////////////
 template<typename T>
-void K_ResourceCache<T>::initilizeResourceHeaders(std::string resourceLocations)
+void K_ResourceCache<T>::initilizeResourceHeaders(std::string resourceDirectory)
 {
-	std::string fileContents;
-	tinyxml2::XMLDocument doc;
+	K_FileManagerPtr fm = K_FileManager::instance();
+	std::vector<std::string> files;
+	fm->getDirectoryContents(files, resourceDirectory);
 
-	printf("Initilizing Resource Cache from resource list: %s\n", resourceLocations.c_str());
-
-	K_FileManager::instance().readTextToString(resourceLocations.c_str(), fileContents);
-
-	K_Error error1("Initilizing Resource Headers from", resourceLocations);
-	if (doc.Parse(fileContents.c_str()) != tinyxml2::XML_SUCCESS)
+	for (const auto& file : files)
 	{
-		K_Error::dump();
+		std::string id = fm->removeFilePathAndExtension(file);
+		if (_resourceHeaders.find(id) == _resourceHeaders.end())
+		{
+			_resourceHeaders.insert(std::pair<std::string, K_ResourceHeader<T>>(id, K_ResourceHeader<T>(file)));
+		}
 	}
-
-	tinyxml2::XMLElement* currentNode = doc.FirstChildElement();
-
-	std::string id;
-	std::string location;
-
-	while (currentNode)
-	{
-		id = currentNode->Attribute("id");
-		location = currentNode->GetText();
-
-		printf("ID: %s, Location: %s \n", id.c_str(), location.c_str());
-		
-		K_ResourceHeader<T>* header = new K_ResourceHeader<T>(location);
-		_resourceHeaders.insert(std::pair<std::string, K_ResourceHeader<T>*>(id, header));
-		
-		currentNode = currentNode->NextSiblingElement();
-	}
-	printf("\n");
 }
+
 
 #endif // __K_RESOURCECACHE_HPP__
-

@@ -17,5 +17,5 @@ const std::string& K_TextResource::getText()
 
 void K_TextResource::initilize(std::string definitionLocation)
 {
-	K_FileManager::instance().readTextToString(definitionLocation.c_str(), _text);
+	K_FileManager::instance()->readTextToString(definitionLocation.c_str(), _text);
 }
